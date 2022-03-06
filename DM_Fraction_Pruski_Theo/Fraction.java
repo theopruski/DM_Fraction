@@ -2,8 +2,8 @@ class Fraction {
         private int numerateur;
         private int denominateur;
     
-        public Fraction(int n, int n2) {
-            this.numerateur = n;
+        public Fraction(int n1, int n2) {
+            this.numerateur = n1;
             this.denominateur = n2;
         }
     
@@ -28,33 +28,33 @@ class Fraction {
         }
     
         public void SimplifierFraction() {
-            int n = this.PGCD(this.numerateur, this.denominateur);
-            this.numerateur /= n;
-            this.denominateur /= n;
+            int n1 = this.PGCD(this.numerateur, this.denominateur);
+            this.numerateur /= n1;
+            this.denominateur /= n1;
             if (this.denominateur < 0) {
                 this.numerateur = -this.numerateur;
                 this.denominateur = -this.denominateur;
             }
         }
     
-        private int PGCD(int n, int n2) {
+        private int PGCD(int n1, int n2) {
             while (n2 != 0) {
-                int n3 = n % n2;
-                n = n2;
+                int n3 = n1 % n2;
+                n1 = n2;
                 n2 = n3;
             }
-            return n;
+            return n1;
         }
 
         public String Affichage() {
-            return ("La fraction est " + this.numerateur + "/" + this.denominateur + "." 
-            + "\nLe numérateur est " + this.numerateur + ", le dénominateur est " + this.denominateur
-            + " et le PGCD est " + this.PGCD(this.numerateur, this.denominateur) + ".");
+            return ("Fraction : " + this.numerateur + "/" + this.denominateur
+            + "\nNumérateur : " + this.numerateur + ", Dénominateur : " + this.denominateur
+            + " , PGCD : " + this.PGCD(this.numerateur, this.denominateur));
     }
     public static void main (String args[]) {
         Fraction Frac1 = new Fraction(2,7);
         Fraction Frac2 = new Fraction(5,13);
-        System.out.println("\nLes fractions  : ");
+        System.out.println("\nFractions  : ");
         System.out.println("Fraction N1 : " + Frac1.Affichage());
         System.out.println("Fraction N2 : " + Frac2.Affichage());
     }
