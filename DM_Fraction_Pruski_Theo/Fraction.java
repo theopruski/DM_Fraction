@@ -1,39 +1,39 @@
 class Fraction {
-        private int numerateur;
-        private int denominateur;
+        private int num;
+        private int deno;
     
         public Fraction(int n1, int n2) {
-            this.numerateur = n1;
-            this.denominateur = n2;
+            this.num = n1;
+            this.deno = n2;
         }
     
         public int getLeNumerateur() {
-            return this.numerateur;
+            return this.num;
         }
     
         public int getLeDenominateur() {
-            return this.denominateur;
+            return this.deno;
         }
     
         public Fraction Addition(Fraction fraction) {
-            this.numerateur = this.numerateur * fraction.denominateur + this.denominateur * fraction.numerateur;
-            this.denominateur *= fraction.denominateur;
-            return new Fraction(this.numerateur, this.denominateur);
+            this.num = this.num * fraction.deno + this.deno * fraction.num;
+            this.deno *= fraction.deno;
+            return new Fraction(this.num, this.deno);
         }
     
         public Fraction Multiplication(Fraction fraction) {
-            this.numerateur *= fraction.numerateur;
-            this.denominateur *= fraction.denominateur;
-            return new Fraction(this.numerateur, this.denominateur);
+            this.num *= fraction.num;
+            this.deno *= fraction.deno;
+            return new Fraction(this.num, this.deno);
         }
     
         public void SimplifierFraction() {
-            int n1 = this.PGCD(this.numerateur, this.denominateur);
-            this.numerateur /= n1;
-            this.denominateur /= n1;
-            if (this.denominateur < 0) {
-                this.numerateur = -this.numerateur;
-                this.denominateur = -this.denominateur;
+            int n1 = this.PGCD(this.num, this.deno);
+            this.num /= n1;
+            this.deno /= n1;
+            if (this.deno < 0) {
+                this.num = -this.num;
+                this.deno = -this.deno;
             }
         }
     
@@ -47,9 +47,9 @@ class Fraction {
         }
 
         public String Affichage() {
-            return ("Fraction : " + this.numerateur + "/" + this.denominateur
-            + "\nNumérateur : " + this.numerateur + ", Dénominateur : " + this.denominateur
-            + " , PGCD : " + this.PGCD(this.numerateur, this.denominateur));
+            return ("Fraction : " + this.num + "/" + this.deno
+            + "\nNumérateur : " + this.num + ", Dénominateur : " + this.deno
+            + " , PGCD : " + this.PGCD(this.num, this.deno));
     }
     public static void main (String args[]) {
         Fraction Frac1 = new Fraction(2,7);
