@@ -27,9 +27,9 @@ class Fraction {
             return new Fraction(this.num, this.deno);
         }
 
-        public Fraction Division(Fraction frac){
-            this.num = this.num * frac.deno;
-            this.deno = this.deno* frac.num;
+        public Fraction Division(Fraction fraction){
+            this.num = this.num * fraction.deno;
+            this.deno = this.deno* fraction.num;
             return this;
             }
     
@@ -53,16 +53,22 @@ class Fraction {
         }
 
         public String Affichage() {
-            return ("Fraction : " + this.num + "/" + this.deno
+            return ("Fraction  " + this.num + "/" + this.deno
             + "\nNumérateur : " + this.num + ", Dénominateur : " + this.deno
             + " , PGCD : " + this.PGCD(this.num, this.deno));
     }
     public static void main (String args[]) {
-        Fraction Frac1 = new Fraction(2,7);
-        Fraction Frac2 = new Fraction(5,13);
-        System.out.println("\nFractions  : ");
+        Fraction Frac1 = new Fraction(2, 7);
+        Fraction Frac2 = new Fraction(5, 13);
         System.out.println("Fraction N1 : " + Frac1.Affichage());
         System.out.println("Fraction N2 : " + Frac2.Affichage());
+        Frac1.Addition(Frac2);
+        System.out.println("Addition : " + Frac1.Affichage());
+        Frac1.SimplifierFraction();
+        System.out.println("Simplification : " + Frac1.Affichage());
+        Frac1.Division(Frac2);
+        System.out.println("Division : " + Frac1.Affichage());
+        Frac1.Multiplication(Frac2);
+        System.out.println("Multiplication : " + Frac1.Affichage());
     }
 }
-
